@@ -29,19 +29,19 @@ Here are some video links to the stages of training and the final runs of the pr
 This project is divided into multiple files and directories:
 
 ### Files
-1. [`model.py`](/mode.py) main file where I load the data, create a `KerasModel`, train the model, and plot loss
-2. [`keras_model.py`](/keras_mode.py) has all Keras implementation under a custom class `KerasModel` that I used in the project
-3. [`utils.py`](/utils.py) this file has some utility drawing and other methods
-4. [`drive.py`](/drive.py) this file takes in the trained model, connects to the simulator, and drive the car autonomously 
-5. [`model.h5`](/model.h5) is the final trained model 
+1. [`model.py`](mode.py) main file where I load the data, create a `KerasModel`, train the model, and plot loss
+2. [`keras_model.py`](keras_mode.py) has all Keras implementation under a custom class `KerasModel` that I used in the project
+3. [`utils.py`](utils.py) this file has some utility drawing and other methods
+4. [`drive.py`](drive.py) this file takes in the trained model, connects to the simulator, and drive the car autonomously 
+5. [`model.h5`](model.h5) is the final trained model 
 
 ### Directories
-1. [`assets`](/assets) include writeup images and some selected test images for each track
-2. [`models`](/models) this directory includes some (a lot) trained variations of the model 
-3. [`DrivingData`](/DrivingData) here are the driving data for the first track (Lake)
+1. [`assets`](assets) include writeup images and some selected test images for each track
+2. [`models`](models) this directory includes some (a lot) trained variations of the model 
+3. [`DrivingData`](DrivingData) here are the driving data for the first track (Lake)
 4. [`DrivingData_track2`](/DrivingData_track2) here are the driving data for the second hilly (jungle) track
-5. [`Graph`](/graph/) a directory that includes `Tensorboard` of the final model
-6. [`Videos`](/videos/) the directory that houses the final videos
+5. [`Graph`](graph/) a directory that includes `Tensorboard` of the final model
+6. [`Videos`](videos/) the directory that houses the final videos
 
 # Libraries and Frameworks
 ----
@@ -157,7 +157,7 @@ and here is a comparison of the model before and after using Batch Normalization
 
 |Without Batch Normalization|With Batch Normalization|
 |:--:|:--:|
-|![model_track1_modular_nvidia_relu_drop_all.png](./assets/loss/track1/model_track1_modular_nvidia_relu_drop_all.png)|![model_track1_modular_nvidia_relu_drop_all_batch_norm.png](./assets/loss/track1/model_track1_modular_nvidia_relu_drop_all_batch_norm.png)|
+|![model_track1_modular_nvidia_relu_drop_all.png](./assets/loss/Track1/model_track1_modular_nvidia_relu_drop_all.png)|![model_track1_modular_nvidia_relu_drop_all_batch_norm.png](./assets/loss/Track1/model_track1_modular_nvidia_relu_drop_all_batch_norm.png)|
 
 As you can see the right graph (with batch normalization) is a lot more stable and doesn't fluctuate as the right counterpart (only dropout); however, we can clearly see that our model is converging slower not faster. This really didn't make and sense dropout is a great regularization technique and batch normalization should actually bring down the convergence speed, this paradox put me on the course of discovering why. 
 
