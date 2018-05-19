@@ -29,19 +29,19 @@ Here are some video links to the stages of training and the final runs of the pr
 This project is divided into multiple files and directories:
 
 ### Files
-1. [`model.py`](./mode.py) main file where I load the data, create a `KerasModel`, train the model, and plot loss
-2. [`keras_model.py`](./keras_mode.py) has all Keras implementation under a custom class `KerasModel` that I used in the project
-3. [`utils.py`](./utils.py) this file has some utility drawing and other methods
-4. [`drive.py`](./drive.py) this file takes in the trained model, connects to the simulator, and drive the car autonomously 
-5. [`model.h5`](./model.h5) is the final trained model 
+1. [`model.py`](/mode.py) main file where I load the data, create a `KerasModel`, train the model, and plot loss
+2. [`keras_model.py`](/keras_mode.py) has all Keras implementation under a custom class `KerasModel` that I used in the project
+3. [`utils.py`](/utils.py) this file has some utility drawing and other methods
+4. [`drive.py`](/drive.py) this file takes in the trained model, connects to the simulator, and drive the car autonomously 
+5. [`model.h5`](/model.h5) is the final trained model 
 
 ### Directories
-1. [`assets`](./assets) include writeup images and some selected test images for each track
-2. [`models`](./models) this directory includes some (a lot) trained variations of the model 
-3. [`DrivingData`](./DrivingData) here are the driving data for the first track (Lake)
-4. [`DrivingData_track2`](./DrivingData_track2) here are the driving data for the second hilly (jungle) track
-5. [`Graph`](./graph/) a directory that includes `Tensorboard` of the final model
-6. [`Videos`](./videos/) the directory that houses the final videos
+1. [`assets`](/assets) include writeup images and some selected test images for each track
+2. [`models`](/models) this directory includes some (a lot) trained variations of the model 
+3. [`DrivingData`](/DrivingData) here are the driving data for the first track (Lake)
+4. [`DrivingData_track2`](/DrivingData_track2) here are the driving data for the second hilly (jungle) track
+5. [`Graph`](/graph/) a directory that includes `Tensorboard` of the final model
+6. [`Videos`](/videos/) the directory that houses the final videos
 
 # Libraries and Frameworks
 ----
