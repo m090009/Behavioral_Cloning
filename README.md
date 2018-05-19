@@ -29,25 +29,25 @@ Here are some video links to the stages of training and the final runs of the pr
 This project is divided into multiple files and directories:
 
 ### Files
-1. [`model.py`](./mode.py) main file where I load the data, create a `KerasModel`, train the model, and plot loss
-2. [`keras_model.py`](./keras_mode.py) has all Keras implementation under a custom class `KerasModel` that I used in the project
-3. [`utils.py`](./utils.py) this file has some utility drawing and other methods
-4. [`drive.py`](./drive.py) this file takes in the trained model, connects to the simulator, and drive the car autonomously 
-5. [`model.h5`](./model.h5) is the final trained model 
+1. [`model.py`](mode.py) main file where I load the data, create a `KerasModel`, train the model, and plot loss
+2. [`keras_model.py`](keras_mode.py) has all Keras implementation under a custom class `KerasModel` that I used in the project
+3. [`utils.py`](utils.py) this file has some utility drawing and other methods
+4. [`drive.py`](drive.py) this file takes in the trained model, connects to the simulator, and drive the car autonomously 
+5. [`model.h5`](model.h5) is the final trained model 
 
 ### Directories
-1. [`assets`](./assets) include writeup images and some selected test images for each track
-2. [`models`](./models) this directory includes some (a lot) trained variations of the model 
-3. [`DrivingData`](./DrivingData) here are the driving data for the first track (Lake)
-4. [`DrivingData_track2`](./DrivingData_track2) here are the driving data for the second hilly (jungle) track
-5. [`Graph`](./graph/) a directory that includes `Tensorboard` of the final model
-6. [`Videos`](./videos/) the directory that houses the final videos
+1. [`assets`](assets) include writeup images and some selected test images for each track
+2. [`models`](models) this directory includes some (a lot) trained variations of the model 
+3. [`DrivingData`](DrivingData) here are the driving data for the first track (Lake)
+4. [`DrivingData_track2`](/DrivingData_track2) here are the driving data for the second hilly (jungle) track
+5. [`Graph`](Graph/) a directory that includes `Tensorboard` of the final model
+6. [`Videos`](Videos/) the directory that houses the final videos
 
 # Libraries and Frameworks
 ----
 To complete this project I've used a varaity of libraries and frameworks like `numpy`, `matplotlib`, `OpenCV`, `sklearn`, etc., but chief among them is `Keras` and `Tensorflow`.
 
-<img src="./assets/keras_logo.png" style="max-width: 300px;" align="middle"></img>
+<img src="./assets/keras_logo.png" style="max-width: 200px;" align="middle"></img>
 
 **Keras** is just a Godsent high level wrapper that uses **Tensorflow** or **Theano** as back-ends, its an **OOP** dream come true after dealing with **Tensorflow's** lets say bad modularity. It has really cool features that are used in this project as we'll see in the coming sections. **Tensorflow** acts as the back-end that **Keras** operates on top of, **Keras** constructs **Tensorflow** model graph, trains, evaluates, and infer our models, all without us have to write any `tf` code. We get all the power of both frameworks which take advantage of the machine **GPU** that perform parallel operations to speed up training and inference especially for image data.
 
@@ -157,7 +157,7 @@ and here is a comparison of the model before and after using Batch Normalization
 
 |Without Batch Normalization|With Batch Normalization|
 |:--:|:--:|
-|![model_track1_modular_nvidia_relu_drop_all.png](./assets/loss/track1/model_track1_modular_nvidia_relu_drop_all.png)|![model_track1_modular_nvidia_relu_drop_all_batch_norm.png](./assets/loss/track1/model_track1_modular_nvidia_relu_drop_all_batch_norm.png)|
+|![model_track1_modular_nvidia_relu_drop_all.png](./assets/Loss/Track1/model_track1_modular_nvidia_relu_drop_all.png)|![model_track1_modular_nvidia_relu_drop_all_batch_norm.png](./assets/Loss/Track1/model_track1_modular_nvidia_relu_drop_all_batch_norm.png)|
 
 As you can see the right graph (with batch normalization) is a lot more stable and doesn't fluctuate as the right counterpart (only dropout); however, we can clearly see that our model is converging slower not faster. This really didn't make and sense dropout is a great regularization technique and batch normalization should actually bring down the convergence speed, this paradox put me on the course of discovering why. 
 
@@ -319,6 +319,9 @@ I trained the model on <span style="color:gray;">gray</span> images and got some
 
 I also trained the model to multivariant values steering angle as usual, and throttle. It gave a workable result, but it wasn't up to par with the single variable regression. Theres a saved model of the multivariant approach in the main directory if you want to check it out.
 
+### Final Data Count
+
+After spliting the data, getting all cameras images, fliping them, and then applying random shadow augmentation we endup with `117,482` training images and `22596` validation images, which serve well in training a robust model.
 
 ## Model Visualization
 
@@ -374,14 +377,14 @@ Now most of the images ignore the hills and other distraction and focus on the d
 I made 3 videos for each track with 3 different speeds `9mph`, `15mph`, and `20mph` to checkout the model robustness in different scenarios, all the links are included below. All the videos of the final model are located in the [`Videos`](./Videos/) directory.
 
 ## Track 1 Lake Track
-* [9 mph video](./runs/final/track1_9mph.mp4)
-* [15 mph video](./runs/final/track1_15mph.mp4)
-* [20 mph video](./runs/final/track1_20mph.mp4)
+* [9 mph video](./runs/Final/track1_9mph.mp4)
+* [15 mph video](./runs/Final/track1_15mph.mp4)
+* [20 mph video](./runs/Final/track1_20mph.mp4)
 
 ## Track 2 Jungle Track
-* [9 mph video](./runs/final/track2_(9mph.mp4)
-* [15 mph video](./runs/final/track2_15mph.mp4)
-* [20 mph video](./runs/final/track2_20mph.mp4)
+* [9 mph video](./runs/Final/track2_(9mph.mp4)
+* [15 mph video](./runs/Final/track2_15mph.mp4)
+* [20 mph video](./runs/Final/track2_20mph.mp4)
 
 # Additions and Exploration
 ----
