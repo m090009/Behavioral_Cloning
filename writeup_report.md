@@ -40,8 +40,8 @@ This project is divided into multiple files and directories:
 2. [`models`](models) this directory includes some (a lot) trained variations of the model 
 3. [`DrivingData`](DrivingData) here are the driving data for the first track (Lake)
 4. [`DrivingData_track2`](/DrivingData_track2) here are the driving data for the second hilly (jungle) track
-5. [`Graph`](graph/) a directory that includes `Tensorboard` of the final model
-6. [`Videos`](videos/) the directory that houses the final videos
+5. [`Graph`](Graph/) a directory that includes `Tensorboard` of the final model
+6. [`Videos`](Videos/) the directory that houses the final videos
 
 # Libraries and Frameworks
 ----
@@ -157,7 +157,7 @@ and here is a comparison of the model before and after using Batch Normalization
 
 |Without Batch Normalization|With Batch Normalization|
 |:--:|:--:|
-|![model_track1_modular_nvidia_relu_drop_all.png](./assets/loss/Track1/model_track1_modular_nvidia_relu_drop_all.png)|![model_track1_modular_nvidia_relu_drop_all_batch_norm.png](./assets/loss/Track1/model_track1_modular_nvidia_relu_drop_all_batch_norm.png)|
+|![model_track1_modular_nvidia_relu_drop_all.png](./assets/Loss/Track1/model_track1_modular_nvidia_relu_drop_all.png)|![model_track1_modular_nvidia_relu_drop_all_batch_norm.png](./assets/Loss/Track1/model_track1_modular_nvidia_relu_drop_all_batch_norm.png)|
 
 As you can see the right graph (with batch normalization) is a lot more stable and doesn't fluctuate as the right counterpart (only dropout); however, we can clearly see that our model is converging slower not faster. This really didn't make and sense dropout is a great regularization technique and batch normalization should actually bring down the convergence speed, this paradox put me on the course of discovering why. 
 
