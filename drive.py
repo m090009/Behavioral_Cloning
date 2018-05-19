@@ -15,7 +15,7 @@ from io import BytesIO
 from keras.models import load_model
 import h5py
 from keras import __version__ as keras_version
-
+import tensorflow as tf
 sio = socketio.Server()
 app = Flask(__name__)
 model = None
@@ -44,7 +44,7 @@ class SimplePIController:
 
 
 controller = SimplePIController(0.1, 0.002)
-set_speed = 15  # 9
+set_speed = 15
 controller.set_desired(set_speed)
 
 
@@ -61,9 +61,24 @@ def telemetry(sid, data):
         imgString = data["image"]
         image = Image.open(BytesIO(base64.b64decode(imgString)))
         image_array = np.asarray(image)
-        steering_angle = float(model.predict(image_array[None, :, :, :], batch_size=1))
+        # Get model prediction
+        prediction = model.predict(image_array[None, :, :, :], batch_size=1)
+        # print('prediction is {}'.format(prediction))
+        # print('prediction length is {}'.format(len(prediction)))
 
-        throttle = controller.update(float(speed))
+        # Check if we get a multivariant measurement
+        if len(prediction[0]) > 1:
+            # Set steering angle value
+            steering_angle = float(prediction[0][0])
+            # Set throttle value
+            throttle = prediction[0][1]
+            # print('Speed is {}'.format(speed))
+        else:
+            # float(model.predict(image_array[None, :, :, :], batch_size=1))
+            # Set steering angle value
+            steering_angle = float(prediction)
+            # Set throttle value with desired speed
+            throttle = controller.update(float(speed))
 
         print(steering_angle, throttle)
         send_control(steering_angle, throttle)
@@ -94,6 +109,16 @@ def send_control(steering_angle, throttle):
         skip_sid=True)
 
 
+def send_controls(steering_angle, throttle, speed):
+    sio.emit(
+        "steer",
+        data={
+            'steering_angle': steering_angle.__str__(),
+            'throttle': throttle.__str__()
+        },
+        skip_sid=True)
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Remote Driving')
     parser.add_argument(
@@ -108,8 +133,18 @@ if __name__ == '__main__':
         default='',
         help='Path to image folder. This is where the images from the run will be saved.'
     )
-    args = parser.parse_args()
+    parser.add_argument(
+        'speed',
+        type=int,
+        nargs='?',
+        default=15,
+        help='Boolean wether or not to include speed.'
+    )
 
+    args = parser.parse_args()
+    # Sets the speed from console args
+    set_speed = args.speed
+    controller.set_desired(set_speed)
     # check that model Keras version is same as local Keras version
     f = h5py.File(args.model, mode='r')
     model_version = f.attrs.get('keras_version')
