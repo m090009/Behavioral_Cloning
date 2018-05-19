@@ -382,7 +382,7 @@ I made 3 videos for each track with 3 different speeds `9mph`, `15mph`, and `20m
 * [20 mph video](./runs/Final/track1_20mph.mp4)
 
 ## Track 2 Jungle Track
-* [9 mph video](./runs/Final/track2_(9mph.mp4)
+* [9 mph video](./runs/Final/track2_9mph.mp4)
 * [15 mph video](./runs/Final/track2_15mph.mp4)
 * [20 mph video](./runs/Final/track2_20mph.mp4)
 
