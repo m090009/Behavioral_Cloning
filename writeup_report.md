@@ -29,8 +29,8 @@ Here are some video links to the stages of training and the final runs of the pr
 This project is divided into multiple files and directories:
 
 ### Files
-1. [`model.py`](mode.py) main file where I load the data, create a `KerasModel`, train the model, and plot loss
-2. [`keras_model.py`](keras_mode.py) has all Keras implementation under a custom class `KerasModel` that I used in the project
+1. [`model.py`](model.py) main file where I load the data, create a `KerasModel`, train the model, and plot loss
+2. [`keras_model.py`](keras_model.py) has all Keras implementation under a custom class `KerasModel` that I used in the project
 3. [`utils.py`](utils.py) this file has some utility drawing and other methods
 4. [`drive.py`](drive.py) this file takes in the trained model, connects to the simulator, and drive the car autonomously 
 5. [`model.h5`](model.h5) is the final trained model 
@@ -382,7 +382,7 @@ I made 3 videos for each track with 3 different speeds `9mph`, `15mph`, and `20m
 * [20 mph video](./runs/Final/track1_20mph.mp4)
 
 ## Track 2 Jungle Track
-* [9 mph video](./runs/Final/track2_(9mph.mp4)
+* [9 mph video](./runs/Final/track2_9mph.mp4)
 * [15 mph video](./runs/Final/track2_15mph.mp4)
 * [20 mph video](./runs/Final/track2_20mph.mp4)
 
