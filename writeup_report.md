@@ -47,7 +47,7 @@ This project is divided into multiple files and directories:
 ----
 To complete this project I've used a varaity of libraries and frameworks like `numpy`, `matplotlib`, `OpenCV`, `sklearn`, etc., but chief among them is `Keras` and `Tensorflow`.
 
-<img src="./assets/keras_logo.png" style="max-width: 300px;" align="middle"></img>
+<img src="./assets/keras_logo.png" style="max-width: 200px;" align="middle"></img>
 
 **Keras** is just a Godsent high level wrapper that uses **Tensorflow** or **Theano** as back-ends, its an **OOP** dream come true after dealing with **Tensorflow's** lets say bad modularity. It has really cool features that are used in this project as we'll see in the coming sections. **Tensorflow** acts as the back-end that **Keras** operates on top of, **Keras** constructs **Tensorflow** model graph, trains, evaluates, and infer our models, all without us have to write any `tf` code. We get all the power of both frameworks which take advantage of the machine **GPU** that perform parallel operations to speed up training and inference especially for image data.
 
@@ -319,6 +319,9 @@ I trained the model on <span style="color:gray;">gray</span> images and got some
 
 I also trained the model to multivariant values steering angle as usual, and throttle. It gave a workable result, but it wasn't up to par with the single variable regression. Theres a saved model of the multivariant approach in the main directory if you want to check it out.
 
+### Final Data Count
+
+After spliting the data, getting all cameras images, fliping them, and then applying random shadow augmentation we endup with `117,482` training images and `22596` validation images, which serve well in training a robust model.
 
 ## Model Visualization
 
